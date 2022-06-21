@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        div{
+  margin: auto;
+  width: 20%;
+  border: 3px solid #ccc;
+  padding: 100px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+div button{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+}
+    </style>
+</head>
+<body>
+    <div>
+  <h1 id="head"></h1> 
+  
+  <button id="increase">Increase</button>
+  <button id="decrease">Decrease</button> 
+</div>
+</body>
+</html>
+<script>
+    document.querySelector("#increase").addEventListener("click", increasecount);
+    document.querySelector("#decrease").addEventListener("click", decreasecount);
+    var inccount= localStorage.getItem("inc") || 0;
+    var deccount= localStorage.getItem("dec") || 0;
+    var count= document.querySelector("#head");
+    count.innerText= inccount;
+    function increasecount(){
+        inccount++;
+        count.innerText=inccount;
+        localStorage.setItem("inc", inccount);
+    }
+    function decreasecount(){
+        inccount--;
+        count.innerText=inccount;
+        localStorage.setItem("inc", inccount);
+    }
+</script>
